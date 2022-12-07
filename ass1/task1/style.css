@@ -1,0 +1,56 @@
+* {
+    margin-top: 0;
+}
+body {
+    font-family: sans-serif;
+    margin: 0;
+}
+
+#global-box {
+    width: 1220px;
+    height: 664px;
+    background-color: #f1f1f1;
+    margin: 0;
+}
+
+.h-box h1, .trait-box h2{
+    color: #92156b;
+    line-height: 3em;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: normal;
+}
+
+#traits-box {
+    display: flex;
+    justify-content: space-around;
+}
+
+.trait-box {
+    background-color: #ffffff;
+    width: 366px;
+    height: 490px;
+    text-align: center;
+}
+
+.trait-box img{
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.trait-box h2 {
+    line-height: 1em;
+    margin-bottom: 20px;
+}
+
+.trait-box .p-box {
+    display: flex;
+    justify-content: center;
+}
+
+.trait-box p {
+    color: #505050;
+    width: 80%;
+    line-height: 1.5em;
+    font-weight: bold;
+}

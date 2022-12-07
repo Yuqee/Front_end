@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table, td {
+          border:1px solid black;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <form name="info_form">
+            <tr>
+                <td>
+                    <label for="first_name">
+                        First Name
+                    </label>
+                </td>
+                <td>
+                    <input type="text" name="first_name">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="last_name">
+                        Last Name
+                    </label>
+                </td>
+                <td>
+                    <input type="text" name="last_name">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="dob">
+                        Date of Birth
+                    </label>
+                </td>
+                <td>
+                    <input type="text" name="dob">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="cheese">
+                        Favourite cheese
+                    </label>
+                </td>
+                <td>
+                    <select name="cheese">
+                        <option value="Haloumi">Haloumi</option>
+                        <option value="Brie">Brie</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="city">
+                        Cities lived in
+                    </label>
+                </td>
+                <td>
+                    <input type="checkbox" name="city" value="Adelaide"> Adelaide
+                    <br>
+                    <input type="checkbox" name="city" value="Perth"> Perth
+                    <br>
+                    <input type="checkbox" name="city" value="Hobart"> Hobart
+                    <br>
+                    <input type="checkbox" name="city" value="Darwin"> Darwin
+                </td>
+            </tr>
+        </form>
+    </table>
+    <br>
+    <button name="remove" id="remove">Remove</button>
+    <br>
+    <br>
+    <textarea name="output" id="output" cols="30" rows="10"></textarea>
+    <script src="form.js"></script>
+</body>
+</html>
