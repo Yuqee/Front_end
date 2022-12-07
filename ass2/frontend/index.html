@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Slackr</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- You can add your styles and scripts here -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" media="screen" href="styles/provided.css" />
+  <script type="module" src="src/helpers.js"></script>
+</head>
+
+<body>
+  <header class="banner">
+    <h1>Slackr</h1>
+  </header>
+  <main role="main">
+    <section id="logged-out">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Slackr</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" href="#" id="nav-register">Register</a>
+            <a class="nav-item nav-link" href="#" id="nav-login">Login</a>
+          </div>
+        </div>
+      </nav>
+      <section id="register">
+        <h1>Register</h1>
+        Email: <input type="text" id="register-email" value="mia@email.com"><br>
+        Password: <input type="password" id="register-password" value="solongbouldercity"><br>
+        Confirm Password: <input type="password" id="register-password-confirm" value="solongbouldercity"><br>
+        Name: <input type="text" id="register-name" value="Mia"><br>
+        <button id="register-action">Register</button>
+      </section>
+    
+      <section id="login" class="hide">
+        <h1>Login</h1>
+        Email: <input type="text" id="login-email" value="mia@email.com"><br>
+        Password: <input type="password" id="login-password" value="1234"><br>
+        <button id="login-action">Login</button>
+      </section>
+    </section>
+
+    <section id="logged-in" class="hide">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Slackr</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" href="#" id="nav-profile">Profile</a>
+            <a class="nav-item nav-link" href="#" id="nav-back">Back</a>
+          </div>
+        </div>
+      </nav>
+      <div id="channels">
+        <div id="channel-create">
+          <h2>Create a new channel</h2>
+          Name: <input type="text" id="channel-create-name"><br>
+          Private: 
+          <input type="radio" name="channel-create-is_private" value="true" id="is_private_true">true
+          <input type="radio" name="channel-create-is_private" value="false" id="is_private_false">false<br>
+          Description:<br>
+          <textarea id="channel-create-des"></textarea><br>
+          <button id="channel-create-action">Create</button>
+        </div> 
+        <div id="channels-list-box">
+          <div id="channels-list">
+            <h3>Channels</h3>
+            <div id="channels-list-public">
+              <h5>Public Channels</h5>
+            </div>
+            <hr>
+            <div id="channels-list-private">
+              <h5>Private Channels</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="channel-messages" class="hide">
+        <div id="channel-info">
+          <input type="text" id="channel-name">
+          <textarea id="channel-des" cols="30" rows="10"></textarea>
+          <p id="channel-setting"></p>
+          <p id="channel-time"></p>
+          <p id="channel-creator"></p>
+          <button id="channel-edit-action">Edit</button><br>
+          <button id="channel-invite-action">Invite</button>
+        </div>
+        <div id="channel-messages-top">
+          New Message: <br>
+          <textarea id="msgsend-text"></textarea><br>
+          <label class="form-label" for="msgsend-img">Choose the image you want to send</label>
+          <input type="file" class="form-control" id="msgsend-img"/>
+          <button id="msgsend-action">Send</button>
+          <hr>
+        </div>
+        <div id="channel-messages-body">
+          <h3>Pinned Messages:</h3>
+          <div id="pinned-messages"></div>
+          <h3>Other Messages:</h3>
+          <div id="other-messages"></div>
+        </div>
+      </div>
+      <br>
+      <button id="logout-action">Logout</button>
+    </section>
+
+    <section id="profile" class="hide">
+      <div class="text-center">
+        <h2 id="profile-title"></h2>
+        <div id="profile-img-box">
+          <img src="" class="rounded" id="profile-img"><br>
+        </div>
+        <span id="profile-img-edit" class="edit">[edit]</span><br>
+        Name: <textarea id="profile-name" disabled="true"></textarea>  <span id="profile-name-edit" class="edit">[edit]</span><br>
+        Bio: <textarea id="profile-bio" disabled="true"></textarea>  <span id="profile-bio-edit" class="edit">[edit]</span><br>
+        Email: <textarea id="profile-email" disabled="true"></textarea>  <span id="profile-email-edit" class="edit">[edit]</span><br>
+        <div id="profile-password">
+          New password: <input type="password" id="reset-password">
+          <input type="checkbox" id="profile-show-action">Show Password<br><br>
+        </div>
+        <button id="profile-update-action" class="btn btn-primary">Submit all changes</button>
+        <button id="profile-back-action" class="btn btn-secondary">Back</button>
+      </div>
+    </section>
+
+    <template>
+      <div class="media">
+        <div class="media-left">
+          <img src="" class="media-object" style="width:60px">
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading"></h4>
+          <h6 class="media-heading"></h6>
+          <p> 
+            <img>
+          </p>
+          <a></a>
+          <a></a>
+          <span class="badge badge-pill badge-light emoji">📌</span>
+          <div>
+            <span class="badge badge-pill badge-light emoji">❤️</span>
+            <span class="badge badge-pill badge-light emoji">&#128077;</span>
+            <span class="badge badge-pill badge-light emoji">&#128078;</span>
+          </div>
+        </div>
+      </div>
+      <hr>
+    </template>
+    
+    <template>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" value="option2">
+        <label class="form-check-label" for="inlineCheckbox2"></label>
+      </div>
+    </template>
+    
+    <div class="modal fade" id="modal-info" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal-title"></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="modal-upload" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal-upload-title">Upload</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <label class="form-label" for="modal-upload-img">Choose your profile image</label>
+            <input type="file" class="form-control" id="modal-upload-img"/>
+          </div>
+          <div class="modal-footer" id="modal-upload-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal" id="upload-img-action">Save changes</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="modal-enlarge" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">View image</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="modal-enlarge-body">
+            <img src="/images/arrow-left-square.svg" id="last-image-action" class="arrow">           
+            <img id="modal-enlarge-image">
+            <img src="/images/arrow-right-square.svg" id="next-image-action" class="arrow">           
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="modal-invite" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal-invite-title">Invite</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="modal-invite-body">
+            Select the users you want to invite(if user is alreay a member of this channel, then you can't select him/her): <br>
+          </div>
+          <div class="modal-footer" id="modal-invite-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal" id="invite-action-invite">Invite</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+  <footer>
+    <p>&copy; Slackr</p>
+  </footer>
+  <script type="module" src="src/main.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>

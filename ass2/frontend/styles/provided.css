@@ -1,0 +1,40 @@
+
+/* base styles, feel free to edit */
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #fafafa;
+    height: 100%;
+    font-family: -apple-system, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.hide {
+    display: none;
+}
+
+.channels:hover {
+    cursor: pointer;
+}
+
+.emoji {
+    color:transparent; 
+    text-shadow: 0 0 0 grey;
+}
+
+.emoji:hover {
+    cursor: pointer;
+    text-shadow: 0 0 0 red;
+}
+
+.edit:hover {
+    cursor: pointer;
+}
+
+.edit {
+    color: blue;
+}
+
+.arrow:hover {
+    cursor: pointer;
+    filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
+}
