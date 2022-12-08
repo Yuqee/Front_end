@@ -1,0 +1,14 @@
+.cell {
+  width: 10vh;
+  height: 10vh;
+}
+
+.row {
+  display: flex;
+}
+
+.board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
